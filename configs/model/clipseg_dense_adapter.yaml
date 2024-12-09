@@ -1,0 +1,25 @@
+_target_: src.models.BaseModule
+net:
+  _target_: src.models.CLIPSegDenseAdapter
+  clipseg_hf_api: ${extras.clipseg_hf_api}
+  adapter_dim: 64
+  freeze_clipseg: true
+  adapter_in_v: true
+  adapter_in_l: true
+  adapter_in_cond: true
+
+loss_fn: 
+  _target_: monai.losses.DiceCELoss
+  lambda_dice: 1.5
+  lambda_ce: 1.0
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.001
+scheduler:
+  _target_: src.lr_scheduler.WarmupCosineAnnealingLR
+  _partial_: true
+  warmup_steps: 20
+  total_steps: 200
+  min_factor: 0.01
