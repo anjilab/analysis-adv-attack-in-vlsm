@@ -1,9 +1,8 @@
 # Fine-Tuning Vision Language Model and Analysis of Robustness Against Adversarial Attack in Medical Image Segmentation 
 
 
-
 ## Abstract
-Adversarial attacks have been fairly explored for computer vision and vision-language models. However, the avenue of adversarial attack for the vision language segmentation models (VLSMs) is still under-explored, especially for medical image analysis. Thus, we will investigate the robustness of VLSMs against adversarial attacks for 2D medical images with different modalities, such as radiology, photography, endoscopy, etc. First, we will fine-tune pre-trained VLSMs for medical image segmentation with adapters.Then, we will employ adversarial attacks---projected gradient descent (PGD) and fast gradient sign method (FGSM)---on that fine-tuned model to determine its robustness against adversaries. We will report models' performance decline to analyze adversaries' impact.
+  Adversarial attacks have been fairly explored for computer vision and vision-language models. However, the avenue of adversarial attack for the vision language segmentation models (VLSMs) is still under-explored, especially for medical image analysis. Thus, we have investigated the robustness of VLSMs against adversarial attacks for 2D medical images with different modalities with radiology, photography, and endoscopy. First, we have fine-tuned pre-trained VLSMs for medical image segmentation with adapters. Then, we have employed adversarial attacks---projected gradient descent (PGD) and fast gradient sign method (FGSM)---on that fine-tuned model to determine its robustness against adversaries. We have reported models' performance decline to analyze the adversaries' impact. The results exhibit significant drops in the DSC and IoU scores after the introduction of these adversaries. 
 
 ## Table of Contents
 - [Attack Architecture](#methodology)
@@ -17,7 +16,7 @@ Adversarial attacks have been fairly explored for computer vision and vision-lan
 </div>
 
 ## Setup
-Please refer to the [VLSM-adapter](https://github.com/naamiinepal/vlsm-adapter) repo for environment setup, pretrained model setup and dataset_preparation.
+Please refer to the [MedVLSM](https://github.com/naamiinepal/medvlsm) repo for environment setup, pretrained model setup and dataset preparation.
 
 
 ## Finetuning
@@ -34,9 +33,3 @@ In the file, all of the methods have been defined as bash scripts.
 <div style="text-align: center;">
   <img src="media/results.png" alt="Attack-Results-FGSM-KSAVIR" style="width: 80%;"/>
 </div>
-
-## Data
-The data for the training can be obtained from here: ArXiv Link: [arxiv.org/abs/2405.06196](https://www.arxiv.org/abs/2405.06196)
-
-### Acknowledgement
-We would like to thank [Lightning-Hydra-Template](https://github.com/ashleve/lightning-hydra-template) for providing a modifiable framework for running multiple experiments while tracking the hyperparameters.

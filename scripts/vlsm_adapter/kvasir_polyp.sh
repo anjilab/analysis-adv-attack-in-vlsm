@@ -10,7 +10,7 @@ python src/train.py \
     datamodule=$datamodule \
     experiment_name=$exp_name \
     datamodule.batch_size=32 \
-    model.optimizer.lr=0.001 \
+    model.optimizer.lr=1e-3 \
     trainer.accelerator=gpu \
     trainer.precision=16-mixed \
     trainer.devices=[2] \
